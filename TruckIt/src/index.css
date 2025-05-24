@@ -1,0 +1,310 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply font-sans text-base text-gray-800 bg-gray-900;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    color: #1f2937; /* text-gray-800 equivalent */
+  }
+
+  /* Light background contexts */
+  .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6,
+  .bg-gray-50 h1, .bg-gray-50 h2, .bg-gray-50 h3, .bg-gray-50 h4, .bg-gray-50 h5, .bg-gray-50 h6,
+  .bg-gray-100 h1, .bg-gray-100 h2, .bg-gray-100 h3, .bg-gray-100 h4, .bg-gray-100 h5, .bg-gray-100 h6,
+  .card h1, .card h2, .card h3, .card h4, .card h5, .card h6 {
+    color: #1f2937; /* text-gray-800 equivalent */
+  }
+  
+  /* Dark background contexts */
+  .bg-gray-800 h1, .bg-gray-800 h2, .bg-gray-800 h3, .bg-gray-800 h4, .bg-gray-800 h5, .bg-gray-800 h6,
+  .bg-gray-900 h1, .bg-gray-900 h2, .bg-gray-900 h3, .bg-gray-900 h4, .bg-gray-900 h5, .bg-gray-900 h6,
+  .bg-primary h1, .bg-primary h2, .bg-primary h3, .bg-primary h4, .bg-primary h5, .bg-primary h6 {
+    color: white;
+  }
+
+  /* 3D Text Effect for Truckit */
+  .truckit-3d {
+    font-weight: 800;
+    font-size: 1.75rem;
+    text-shadow: 
+      1px 1px 1px #1EAEDB,
+      2px 2px 1px #1EAEDB,
+      3px 3px 2px rgba(0, 0, 0, 0.4);
+    letter-spacing: 1px;
+    transform: perspective(500px) rotateX(10deg);
+    transition: transform 0.3s ease;
+  }
+
+  .truckit-3d:hover {
+    transform: perspective(500px) rotateX(0deg) translateY(-5px);
+    text-shadow: 
+      1px 1px 1px #1EAEDB,
+      2px 2px 1px #1EAEDB,
+      3px 3px 2px rgba(0, 0, 0, 0.4),
+      4px 4px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .truckit-3d-small {
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-shadow: 
+      1px 1px 1px #1EAEDB,
+      1px 1px 2px rgba(0, 0, 0, 0.25);
+    letter-spacing: 1px;
+  }
+
+  /* Enhanced reveal animations */
+  .reveal, .reveal-slide-up, .reveal-slide-right, .reveal-slide-left, .reveal-zoom, .reveal-flip {
+    position: relative;
+    opacity: 0;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal {
+    transform: translateY(30px);
+  }
+
+  .reveal-slide-up {
+    transform: translateY(50px);
+  }
+
+  .reveal-slide-right {
+    transform: translateX(-50px);
+  }
+
+  .reveal-slide-left {
+    transform: translateX(50px);
+  }
+
+  .reveal-zoom {
+    transform: scale(0.9);
+  }
+
+  .reveal-flip {
+    transform: perspective(400px) rotateX(10deg);
+  }
+
+  .reveal.active,
+  .reveal-slide-up.active,
+  .reveal-slide-right.active,
+  .reveal-slide-left.active,
+  .reveal-zoom.active,
+  .reveal-flip.active {
+    opacity: 1;
+    transform: translate(0) scale(1) rotate(0);
+  }
+
+  .btn {
+    @apply rounded-md font-medium transition-all duration-300 inline-flex items-center justify-center shadow-md;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-600 px-6 py-3;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-gray-900 hover:bg-accent-600 px-6 py-3;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 py-3;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 relative inline-block;
+    color: #1EAEDB;
+  }
+
+  .section-title::before {
+    content: '';
+    @apply absolute -bottom-2 left-0 w-full h-0.5 bg-accent/60;
+  }
+
+  .section-title::after {
+    content: '';
+    @apply absolute -bottom-2 left-0 w-1/3 h-0.5 bg-accent;
+    animation: pulse 2s infinite;
+  }
+
+  /* Center section title styles */
+  .section-title.mx-auto {
+    @apply block text-center;
+  }
+
+  .section-title.mx-auto::before {
+    @apply left-1/2 transform -translate-x-1/2 w-48;
+  }
+
+  .section-title.mx-auto::after {
+    @apply left-1/2 transform -translate-x-1/2 w-24;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .card {
+    @apply bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 border border-gray-700;
+  }
+
+  .card:hover {
+    @apply shadow-xl transform -translate-y-1 border-primary-500/50;
+  }
+  
+  .parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .overlay {
+    @apply bg-gray-900 bg-opacity-70;
+  }
+  
+  .navbar {
+    @apply fixed top-0 left-0 w-full z-50 transition-all duration-300;
+  }
+  
+  .navbar-scrolled {
+    @apply bg-gray-900 shadow-lg;
+  }
+  
+  .navbar-transparent {
+    @apply bg-transparent;
+  }
+
+  /* Enhanced hover effects */
+  .hover-float {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-float:hover {
+    transform: translateY(-10px);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+  }
+  
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-blue {
+    background: linear-gradient(135deg, #126883 0%, #1EAEDB 100%);
+  }
+  
+  .bg-gradient-accent {
+    background: linear-gradient(135deg, #65A91A 0%, #7ED321 100%);
+  }
+}
+
+/* Add custom styles for form elements */
+@layer components {
+  .form-control {
+    @apply relative mb-4;
+  }
+  
+  .form-input {
+    @apply w-full p-3 border border-gray-700 bg-gray-800 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+  
+  .form-label {
+    @apply absolute left-3 top-3 text-gray-400 transition-all duration-200 pointer-events-none;
+  }
+  
+  .form-input:focus + .form-label,
+  .form-input:not(:placeholder-shown) + .form-label {
+    @apply text-xs text-primary transform -translate-y-5 bg-gray-800 px-1;
+  }
+
+  /* Light mode form inputs */
+  .bg-white .form-input, .bg-gray-50 .form-input, .bg-gray-100 .form-input {
+    border-color: #d1d5db; /* border-gray-300 equivalent */
+    background-color: white;
+    color: #1f2937; /* text-gray-800 equivalent */
+  }
+
+  /* Custom animated underline links */
+  .link-underline {
+    position: relative;
+  }
+  
+  .link-underline:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 2px;
+    right: 0;
+    background: currentColor;
+    transition: width 0.3s ease;
+  }
+  
+  .link-underline:hover:after {
+    width: 100%;
+    left: 0;
+    right: auto;
+  }
+}
