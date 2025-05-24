@@ -32,7 +32,7 @@ const ContactForm: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/submit-form', { // Changed for Vercel deployment
+      const response = await fetch('/api/submit-form', { // Changed for Vercel deployment and API route
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
