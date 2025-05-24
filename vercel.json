@@ -16,7 +16,7 @@
   "rewrites": [
     {
       "source": "/submit-form",
-      "destination": "/backend/server.js"
+      "destination": "/api/submit-form"
     },
     {
       "source": "/api/(.*)",
