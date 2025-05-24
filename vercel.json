@@ -2,6 +2,13 @@
   "version": 2,
   "builds": [
     {
+      "src": "TruckIt/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "outputDirectory": "dist" 
+      }
+    },
+    {
       "src": "backend/server.js",
       "use": "@vercel/node",
       "config": {
@@ -11,12 +18,16 @@
   ],
   "rewrites": [
     {
+      "source": "/submit-form",
+      "destination": "/backend/server.js"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/backend/server.js"
     },
     {
-      "source": "/submit-form",
-      "destination": "/backend/server.js"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
