@@ -92,12 +92,12 @@
   "main": "eslint.config.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abdalkhalid/truckit-8dae1c51.git"
+    "url": "git+https://github.com/abdalkhalid/truckit.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/abdalkhalid/truckit-8dae1c51/issues"
+    "url": "https://github.com/abdalkhalid/truckit/issues"
   }
 }
